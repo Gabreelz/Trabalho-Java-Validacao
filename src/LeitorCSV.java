@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class LeitorCSV {
@@ -12,14 +14,17 @@ public class LeitorCSV {
 
     public void lerEstados() {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
+        try (
+            BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("saida_estados.txt"))
+        ) {
 
             String linha;
 
-            // pula o cabeçalho
             br.readLine();
 
-            System.out.println("----- ESTADOS DO BRASIL -----");
+            bw.write("----- ESTADOS DO BRASIL -----");
+            bw.newLine();
 
             while ((linha = br.readLine()) != null) {
 
@@ -29,10 +34,17 @@ public class LeitorCSV {
                 String nome = dados[1];
                 String descricao = dados[2];
 
-                System.out.println("Sigla: " + sigla);
-                System.out.println("Nome: " + nome);
-                System.out.println("Descricao: " + descricao);
-                System.out.println("-----------------------------");
+                bw.write("Sigla: " + sigla);
+                bw.newLine();
+
+                bw.write("Nome: " + nome);
+                bw.newLine();
+
+                bw.write("Descricao: " + descricao);
+                bw.newLine();
+
+                bw.write("-----------------------------");
+                bw.newLine();
             }
 
         } catch (IOException e) {
