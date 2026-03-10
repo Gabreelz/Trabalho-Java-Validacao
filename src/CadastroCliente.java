@@ -5,23 +5,32 @@ import java.io.IOException;
 public class CadastroCliente {
     private static final String ARQUIVO_CLIENTES = "clientes.txt";
 
-    public String cadastrar(String nome, String cpf, String email) {
-        if (nome == null || nome.isBlank()) return "Erro: O nome é obrigatório.";
+    public String cadastrar(String nome, String documento, String email, boolean isCnpj) {
+        if (nome == null || nome.isBlank()) return "Erro: Nome obrigatório.";
 
-        // Validações externas
-        if (!ValidacaoCPF.cpfValido(cpf)) return "Erro: CPF inválido.";
+        if (isCnpj) {
+            if (!ValidacaoCNPJ.cnpjValido(documento)) return "Erro: CNPJ inválido."; //
+        } else {
+            if (!ValidacaoCPF.cpfValido(documento)) return "Erro: CPF inválido."; //
+        }
         
-        String statusEmail = ValidacaoEmail.validar(email);
+        String statusEmail = ValidacaoEmail.validar(email); 
         if (!statusEmail.equals("E-mail válido!")) return "Erro: " + statusEmail;
 
-        // Bloco de escrita persistente
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_CLIENTES, true))) {
-            // Salva no formato CSV simples: Nome;CPF;Email
-            writer.write(nome + ";" + cpf + ";" + email);
+            writer.write("------------------------------");
             writer.newLine();
-            return "Cliente cadastrado e salvo com sucesso!";
+            writer.write("Nome: " + nome);
+            writer.newLine();
+            writer.write((isCnpj ? "CNPJ: " : "CPF: ") + documento);
+            writer.newLine();
+            writer.write("Email: " + email);
+            writer.newLine();
+            writer.write("------------------------------");
+            writer.newLine();
+            return "Cliente cadastrado com sucesso no arquivo TXT!";
         } catch (IOException e) {
-            return "Erro técnico ao salvar no arquivo: " + e.getMessage();
+            return "Erro ao gravar no arquivo: " + e.getMessage();
         }
     }
 }
