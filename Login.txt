@@ -1,7 +1,7 @@
 public class Login {
 
     private static final String USUARIO_PADRAO = "admin";
-    private static final String SENHA_PADRAO = "1234";
+    private static final String SENHA_PADRAO = "Senha1@";
 
     public static boolean validarLogin(String usuario, String senha) {
 

@@ -30,17 +30,17 @@ public class LeitorCSV {
 
                 String[] dados = linha.split(",");
 
-                String sigla = dados[0];
-                String nome = dados[1];
-                String descricao = dados[2];
+                String sigla = dados[1];
+                String nome = dados[2];
+                String cod = dados[0];
+
+                bw.write("Codigo IBGE: " + cod);
+                bw.newLine();
 
                 bw.write("Sigla: " + sigla);
                 bw.newLine();
 
                 bw.write("Nome: " + nome);
-                bw.newLine();
-
-                bw.write("Descricao: " + descricao);
                 bw.newLine();
 
                 bw.write("-----------------------------");
