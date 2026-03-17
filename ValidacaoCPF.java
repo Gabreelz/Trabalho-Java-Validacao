@@ -1,8 +1,7 @@
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ValidacaoCPF {
-
-    // Validação por boolean
 
     public static boolean cpfValido(String cpf) {
         cpf = cpf.replaceAll("\\D", "");
@@ -40,4 +39,16 @@ public class ValidacaoCPF {
         return cpf.chars().allMatch(c -> c == cpf.charAt(0));
     }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("TESTE DE VALIDACAO DE CPF");
+        System.out.print("Digite o CPF: ");
+        String cpfTeste = sc.nextLine();
+        
+        boolean resultado = cpfValido(cpfTeste);
+        System.out.println("O CPF digitado e valido? " + (resultado ? "SIM" : "NAO"));
+        
+        sc.close();
+    }
 }

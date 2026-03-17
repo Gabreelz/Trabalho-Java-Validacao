@@ -51,4 +51,14 @@ public class LeitorCSV {
             System.out.println("Erro ao ler o arquivo CSV: " + e.getMessage());
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("TESTE CSV");
+        System.out.println("A processar o arquivo estados.csv...");
+        
+        LeitorCSV leitor = new LeitorCSV("estados.csv");
+        leitor.lerEstados();
+        
+        System.out.println("Finalizado! Verifica se o arquivo saida_estados.txt foi gerado/atualizado.");
+    }
 }

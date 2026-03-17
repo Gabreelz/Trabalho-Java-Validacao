@@ -1,14 +1,14 @@
-public class ValidacaoEmail {
+import java.util.Scanner;
 
-    // Se o email estiver errado a função retorna o motivo por estar invalido
+public class ValidacaoEmail {
 
     public static String validar(String email) {
         if (email == null || email.isBlank()) {
-            return "O e-mail não pode estar vazio";
+            return "O e-mail nao pode estar vazio";
         }
 
         if (email.contains(" ")) {
-            return "O e-mail não pode conter espaços em branco";
+            return "O e-mail nao pode conter espacos em branco";
         }
 
         if (!email.contains("@")) {
@@ -23,29 +23,40 @@ public class ValidacaoEmail {
 
         String usuario = partes[0];
         if (usuario.isEmpty()) {
-            return "O nome de usuário (antes do @) está vazio";
+            return "O nome de usuario (antes do @) esta vazio";
         }
 
         if (partes.length < 2 || partes[1].isEmpty()) {
-            return "O domínio (depois do @) está vazio";
+            return "O dominio (depois do @) esta vazio";
         }
 
         String dominio = partes[1];
         if (!dominio.contains(".")) {
-            return "O domínio deve conter um ponto (ex: .com ou .com.br)";
+            return "O dominio deve conter um ponto (ex: .com ou .com.br)";
         }
 
         if (dominio.startsWith(".") || dominio.endsWith(".")) {
-            return "O domínio não pode começar ou terminar com ponto.";
+            return "O dominio nao pode comecar ou terminar com ponto.";
         }
 
         String[] partesDominio = dominio.split("\\.");
         String ultimaExtensao = partesDominio[partesDominio.length - 1];
         if (ultimaExtensao.length() < 2) {
-            return "A extensão final do domínio deve ter pelo menos 2 caracteres.";
+            return "A extensao final do dominio deve ter pelo menos 2 caracteres.";
         }
 
-        return "E-mail válido!";
+        return "E-mail valido!";
     }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("TESTE DE VALIDACAO DE EMAIL");
+        System.out.print("Digite o email: ");
+        String emailTeste = sc.nextLine();
+        
+        System.out.println("Resultado: " + validar(emailTeste));
+        
+        sc.close();
+    }
 }

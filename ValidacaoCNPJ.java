@@ -1,8 +1,7 @@
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ValidacaoCNPJ {
-
-    // Validação por boolean
 
     private static boolean SequenciaRepetida(String cnpj) {
         return cnpj.chars().allMatch(c -> c == cnpj.charAt(0));
@@ -39,4 +38,16 @@ public class ValidacaoCNPJ {
         }
     }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("TESTE DE VALIDACAO DE CNPJ");
+        System.out.print("Digite o CNPJ: ");
+        String cnpjTeste = sc.nextLine();
+        
+        boolean resultado = cnpjValido(cnpjTeste);
+        System.out.println("O CNPJ digitado e valido? " + (resultado ? "SIM" : "NAO"));
+        
+        sc.close();
+    }
 }
