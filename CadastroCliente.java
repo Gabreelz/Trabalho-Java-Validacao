@@ -4,19 +4,21 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CadastroCliente {
+
     private static final String ARQUIVO_CLIENTES = "clientes.txt";
 
     public String cadastrar(String nome, String documento, String email, boolean isCnpj) {
         if (nome == null || nome.isBlank()) return "Erro: Nome obrigatorio.";
 
-        if (isCnpj) {
-            if (!ValidacaoCNPJ.cnpjValido(documento)) return "Erro: CNPJ invalido."; 
-        } else {
-            if (!ValidacaoCPF.cpfValido(documento)) return "Erro: CPF invalido."; 
+        // Sem validação de CPF/CNPJ
+        if (documento == null || documento.isBlank()) {
+            return "Erro: Documento obrigatorio.";
         }
-        
-        String statusEmail = ValidacaoEmail.validar(email); 
-        if (!statusEmail.equals("E-mail valido!")) return "Erro: " + statusEmail;
+
+        // Validação simples de email
+        if (email == null || !email.contains("@")) {
+            return "Erro: E-mail invalido.";
+        }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_CLIENTES, true))) {
             writer.write("------------------------------");
@@ -38,27 +40,27 @@ public class CadastroCliente {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         CadastroCliente cadastro = new CadastroCliente();
-        
+
         System.out.println("TESTE DE CADASTRO DE CLIENTE");
-        
+
         System.out.print("Nome: ");
         String nome = sc.nextLine();
-        
+
         System.out.println("Tipo documento (1 - CPF | 2 - CNPJ): ");
         int tipo = sc.nextInt();
         sc.nextLine();
-        
+
         System.out.print("Documento: ");
         String documento = sc.nextLine();
-        
+
         System.out.print("Email: ");
         String email = sc.nextLine();
-        
+
         boolean isCnpj = (tipo == 2);
-        
+
         String resultado = cadastro.cadastrar(nome, documento, email, isCnpj);
         System.out.println("Retorno: " + resultado);
-        
+
         sc.close();
     }
 }
