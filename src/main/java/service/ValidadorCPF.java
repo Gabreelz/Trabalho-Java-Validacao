@@ -1,19 +1,24 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+package service;
 
-public class ValidacaoCPF {
+import java.util.InputMismatchException;
+
+/**
+ * Serviço de validação de CPF.
+ * Estrutura: service/ValidadorCPF.java
+ * (Portado de ValidacaoCPF.java da 1ª entrega)
+ */
+public class ValidadorCPF {
 
     public static boolean cpfValido(String cpf) {
         cpf = cpf.replaceAll("\\D", "");
 
-        if (cpf.length() != 11 || SequenciaRepetida(cpf)) {
+        if (cpf.length() != 11 || sequenciaRepetida(cpf)) {
             return false;
         }
 
         try {
             char dig10 = calcularDigito(cpf, 10);
             char dig11 = calcularDigito(cpf, 11);
-
             return (dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10));
         } catch (InputMismatchException e) {
             return false;
@@ -23,10 +28,10 @@ public class ValidacaoCPF {
     private static char calcularDigito(String cpf, int pesoInicial) {
         int soma = 0;
         int peso = pesoInicial;
-        int limite = pesoInicial - 1; 
+        int limite = pesoInicial - 1;
 
         for (int i = 0; i < limite; i++) {
-            int num = (int) (cpf.charAt(i) - 48); 
+            int num = (int) (cpf.charAt(i) - 48);
             soma += (num * peso);
             peso--;
         }
@@ -35,20 +40,7 @@ public class ValidacaoCPF {
         return (resto > 9) ? '0' : (char) (resto + 48);
     }
 
-    private static boolean SequenciaRepetida(String cpf) {
+    private static boolean sequenciaRepetida(String cpf) {
         return cpf.chars().allMatch(c -> c == cpf.charAt(0));
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("TESTE DE VALIDACAO DE CPF");
-        System.out.print("Digite o CPF: ");
-        String cpfTeste = sc.nextLine();
-        
-        boolean resultado = cpfValido(cpfTeste);
-        System.out.println("O CPF digitado e valido? " + (resultado ? "SIM" : "NAO"));
-        
-        sc.close();
     }
 }

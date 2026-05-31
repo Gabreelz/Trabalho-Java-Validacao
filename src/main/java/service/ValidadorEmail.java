@@ -1,6 +1,11 @@
-import java.util.Scanner;
+package service;
 
-public class ValidacaoEmail {
+/**
+ * Serviço de validação de E-mail.
+ * Estrutura: service/ValidadorEmail.java
+ * (Portado de ValidacaoEmail.java da 1ª entrega)
+ */
+public class ValidadorEmail {
 
     public static String validar(String email) {
         if (email == null || email.isBlank()) {
@@ -48,15 +53,7 @@ public class ValidacaoEmail {
         return "E-mail valido!";
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("TESTE DE VALIDACAO DE EMAIL");
-        System.out.print("Digite o email: ");
-        String emailTeste = sc.nextLine();
-        
-        System.out.println("Resultado: " + validar(emailTeste));
-        
-        sc.close();
+    public static boolean emailValido(String email) {
+        return validar(email).equals("E-mail valido!");
     }
 }

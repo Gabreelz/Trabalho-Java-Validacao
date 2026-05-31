@@ -1,0 +1,298 @@
+/* ================================================================
+   estilo.css  –  ValidaSystem  |  Dark Theme Premium
+   ================================================================ */
+
+/* ── Paleta de cores ───────────────────────────────────────────── */
+:root {
+    -cor-fundo:         #0f1117;
+    -cor-superficie:    #1a1d27;
+    -cor-borda:         #2a2d3d;
+    -cor-primaria:      #6c63ff;
+    -cor-primaria-hover:#5a52e0;
+    -cor-cpf:           #4f8ef7;
+    -cor-cnpj:          #f76f4f;
+    -cor-sucesso:       #27ae60;
+    -cor-erro:          #e74c3c;
+    -cor-aviso:         #f39c12;
+    -cor-texto:         #e8e8f0;
+    -cor-texto-dim:     #8a8aaa;
+    -fx-font-family:    'Segoe UI';
+}
+
+/* ── Base da aplicação ─────────────────────────────────────────── */
+.root {
+    -fx-background-color: #0f1117;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+}
+
+/* ── Tela Principal ────────────────────────────────────────────── */
+.tela-principal {
+    -fx-background-color: #0f1117;
+}
+
+/* ── Menu Topo ─────────────────────────────────────────────────── */
+.menu-topo {
+    -fx-background-color: #1a1d27;
+    -fx-border-color: transparent transparent #2a2d3d transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 2);
+}
+
+.menu-titulo {
+    -fx-text-fill: #e8e8f0;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.5), 6, 0, 0, 0);
+}
+
+/* Botões do menu */
+.btn-menu {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 9 20 9 20;
+    -fx-border-width: 1.5;
+    -fx-transition: all 0.2s;
+}
+
+.btn-menu-cpf {
+    -fx-background-color: rgba(79,142,247,0.15);
+    -fx-text-fill: #4f8ef7;
+    -fx-border-color: #4f8ef7;
+}
+.btn-menu-cpf:hover {
+    -fx-background-color: rgba(79,142,247,0.3);
+    -fx-effect: dropshadow(gaussian, rgba(79,142,247,0.5), 10, 0, 0, 0);
+}
+
+.btn-menu-cnpj {
+    -fx-background-color: rgba(247,111,79,0.15);
+    -fx-text-fill: #f76f4f;
+    -fx-border-color: #f76f4f;
+}
+.btn-menu-cnpj:hover {
+    -fx-background-color: rgba(247,111,79,0.3);
+    -fx-effect: dropshadow(gaussian, rgba(247,111,79,0.5), 10, 0, 0, 0);
+}
+
+/* ── Área de Conteúdo ──────────────────────────────────────────── */
+.area-conteudo {
+    -fx-background-color: #0f1117;
+    -fx-padding: 40;
+}
+
+/* ── Boas-vindas ───────────────────────────────────────────────── */
+.boas-vindas {
+    -fx-alignment: center;
+}
+
+.boas-vindas-icone {
+    -fx-font-size: 56px;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.6), 20, 0, 0, 0);
+}
+
+.boas-vindas-titulo {
+    -fx-text-fill: #e8e8f0;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.boas-vindas-subtitulo {
+    -fx-text-fill: #8a8aaa;
+    -fx-font-size: 14px;
+}
+
+/* Botões de atalho na área central */
+.btn-atalho {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 14;
+    -fx-border-color: #2a2d3d;
+    -fx-border-radius: 14;
+    -fx-border-width: 1.5;
+    -fx-cursor: hand;
+    -fx-pref-width: 140px;
+    -fx-pref-height: 120px;
+}
+.btn-atalho:hover {
+    -fx-background-color: #22253a;
+    -fx-border-color: #6c63ff;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.35), 14, 0, 0, 0);
+}
+
+.btn-atalho-icone {
+    -fx-font-size: 32px;
+}
+
+.btn-atalho-texto {
+    -fx-text-fill: #e8e8f0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ── Status Bar ────────────────────────────────────────────────── */
+.status-bar {
+    -fx-background-color: #13151e;
+    -fx-border-color: #2a2d3d transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-texto {
+    -fx-text-fill: #8a8aaa;
+    -fx-font-size: 12px;
+}
+
+.status-versao {
+    -fx-text-fill: #5a5a7a;
+    -fx-font-size: 11px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   TELAS FILHAS (dialogs modais)
+   ════════════════════════════════════════════════════════════════ */
+
+.tela-filha {
+    -fx-background-color: #1a1d27;
+}
+
+/* ── Cabeçalho das telas filhas ────────────────────────────────── */
+.cabecalho-filha {
+    -fx-background-color: #13151e;
+}
+
+.cabecalho-icone {
+    -fx-font-size: 28px;
+}
+
+.cabecalho-titulo {
+    -fx-text-fill: #e8e8f0;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.cabecalho-subtitulo {
+    -fx-text-fill: #8a8aaa;
+    -fx-font-size: 12px;
+}
+
+.separador {
+    -fx-background-color: #2a2d3d;
+    -fx-pref-height: 1;
+    -fx-opacity: 1;
+}
+.separator .line {
+    -fx-border-color: #2a2d3d;
+}
+
+/* ── Formulário ────────────────────────────────────────────────── */
+.formulario {
+    -fx-background-color: #1a1d27;
+}
+
+.label-campo {
+    -fx-text-fill: #b0b0cc;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* Campo de texto */
+.campo-texto {
+    -fx-background-color: #13151e;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2d3d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #e8e8f0;
+    -fx-prompt-text-fill: #5a5a7a;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14 10 14;
+    -fx-pref-height: 44px;
+}
+.campo-texto:focused {
+    -fx-border-color: #6c63ff;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.3), 8, 0, 0, 0);
+}
+.campo-texto.campo-sucesso {
+    -fx-border-color: #27ae60;
+    -fx-effect: dropshadow(gaussian, rgba(39,174,96,0.3), 8, 0, 0, 0);
+}
+.campo-texto.campo-erro {
+    -fx-border-color: #e74c3c;
+    -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.3), 8, 0, 0, 0);
+}
+.campo-texto.campo-aviso {
+    -fx-border-color: #f39c12;
+    -fx-effect: dropshadow(gaussian, rgba(243,156,18,0.3), 8, 0, 0, 0);
+}
+
+/* ── Área de Resultado ─────────────────────────────────────────── */
+.area-resultado {
+    -fx-background-radius: 10;
+    -fx-padding: 14 16 14 16;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+}
+
+.area-resultado.resultado-sucesso {
+    -fx-background-color: rgba(39,174,96,0.12);
+    -fx-border-color: #27ae60;
+}
+
+.area-resultado.resultado-erro {
+    -fx-background-color: rgba(231,76,60,0.12);
+    -fx-border-color: #e74c3c;
+}
+
+.area-resultado.resultado-aviso {
+    -fx-background-color: rgba(243,156,18,0.12);
+    -fx-border-color: #f39c12;
+}
+
+.resultado-titulo {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e8e8f0;
+}
+
+.resultado-detalhe {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b0b0cc;
+}
+
+/* ── Botões de Ação ────────────────────────────────────────────── */
+.btn-acao {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 9 22 9 22;
+    -fx-pref-height: 38px;
+}
+
+.btn-validar {
+    -fx-background-color: #6c63ff;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.btn-validar:hover {
+    -fx-background-color: #5a52e0;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.5), 12, 0, 0, 0);
+}
+.btn-validar:pressed {
+    -fx-background-color: #4a43c0;
+}
+
+.btn-limpar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8a8aaa;
+    -fx-border-color: #2a2d3d;
+    -fx-border-width: 1.5;
+}
+.btn-limpar:hover {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-text-fill: #e8e8f0;
+    -fx-border-color: #5a5a7a;
+}

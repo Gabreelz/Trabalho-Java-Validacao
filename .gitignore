@@ -1,0 +1,17 @@
+# Compilação Maven
+target/
+
+# Maven local (baixado pelo script)
+maven/
+
+# Arquivos gerados
+saida_estados.txt
+
+# Classes soltas
+*.class
+
+# Arquivos de IDE
+.vscode/settings.json
+.classpath
+.project
+.settings/

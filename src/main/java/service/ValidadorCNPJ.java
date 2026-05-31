@@ -1,9 +1,15 @@
+package service;
+
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class ValidacaoCNPJ {
+/**
+ * Serviço de validação de CNPJ.
+ * Estrutura: service/ValidadorCNPJ.java
+ * (Portado de ValidacaoCNPJ.java da 1ª entrega)
+ */
+public class ValidadorCNPJ {
 
-    private static boolean SequenciaRepetida(String cnpj) {
+    private static boolean sequenciaRepetida(String cnpj) {
         return cnpj.chars().allMatch(c -> c == cnpj.charAt(0));
     }
 
@@ -24,30 +30,16 @@ public class ValidacaoCNPJ {
     public static boolean cnpjValido(String cnpj) {
         cnpj = cnpj.replaceAll("\\D", "");
 
-        if (cnpj.length() != 14 || SequenciaRepetida(cnpj)) {
+        if (cnpj.length() != 14 || sequenciaRepetida(cnpj)) {
             return false;
         }
 
         try {
             char dig13 = calcularDigito(cnpj, 5, 12);
             char dig14 = calcularDigito(cnpj, 6, 13);
-
             return (dig13 == cnpj.charAt(12)) && (dig14 == cnpj.charAt(13));
         } catch (InputMismatchException e) {
             return false;
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("TESTE DE VALIDACAO DE CNPJ");
-        System.out.print("Digite o CNPJ: ");
-        String cnpjTeste = sc.nextLine();
-        
-        boolean resultado = cnpjValido(cnpjTeste);
-        System.out.println("O CNPJ digitado e valido? " + (resultado ? "SIM" : "NAO"));
-        
-        sc.close();
     }
 }
