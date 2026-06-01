@@ -7,7 +7,7 @@ package service;
  */
 public class LoginService {
 
-    private static final String USUARIO_PADRAO = "admin";
+    private static final String USUARIO_PADRAO = "admin@gmail.com";
     private static final String SENHA_PADRAO = "Senha1@";
 
     public static boolean validarLogin(String usuario, String senha) {
