@@ -58,6 +58,8 @@ public class MainFrame {
         btnCliente.setOnAction(e -> abrirTela("cliente"));
         btnCSV.setOnAction(e -> abrirTela("csv"));
         btnRelatorio.setOnAction(e -> abrirTela("relatorio"));
+        btnEmail.setOnAction(e -> abrirTela("email"));
+        btnLogin.setOnAction(e -> abrirTela("login"));
 
         menuTopo.getChildren().addAll(titulo, espacador, btnCPF, btnCNPJ,
                 btnEmail, btnLogin, btnCliente, btnCSV, btnRelatorio);
@@ -144,6 +146,8 @@ public class MainFrame {
             case "cnpj"      -> { setStatus("Validação de CNPJ..."); new TelaCNPJ(primaryStage).exibir(); }
             case "cliente"   -> { setStatus("Cadastro de Cliente..."); new TelaCliente(primaryStage).exibir(); }
             case "csv"       -> { setStatus("Leitura de CSV..."); new TelaCSV(primaryStage).exibir(); }
+            case "email"     -> { setStatus("Validação de E-mail..."); new TelaEmail(primaryStage).exibir(); }
+            case "login"     -> { setStatus("Tela Login..."); new TelaLogin().setVisible(true); }
             case "relatorio" -> { setStatus("Relatório de Clientes..."); new TelaRelatorio(primaryStage).exibir(); }
         }
         setStatus("Pronto");
