@@ -55,6 +55,9 @@ public class MainFrame {
 
         btnCPF.setOnAction(e  -> abrirTela("cpf"));
         btnCNPJ.setOnAction(e -> abrirTela("cnpj"));
+        btnCliente.setOnAction(e -> abrirTela("cliente"));
+        btnCSV.setOnAction(e -> abrirTela("csv"));
+        btnRelatorio.setOnAction(e -> abrirTela("relatorio"));
 
         menuTopo.getChildren().addAll(titulo, espacador, btnCPF, btnCNPJ,
                 btnEmail, btnLogin, btnCliente, btnCSV, btnRelatorio);
@@ -137,8 +140,11 @@ public class MainFrame {
 
     private void abrirTela(String tipo) {
         switch (tipo) {
-            case "cpf"  -> { setStatus("Validação de CPF..."); new TelaCPF(primaryStage).exibir(); }
-            case "cnpj" -> { setStatus("Validação de CNPJ..."); new TelaCNPJ(primaryStage).exibir(); }
+            case "cpf"       -> { setStatus("Validação de CPF..."); new TelaCPF(primaryStage).exibir(); }
+            case "cnpj"      -> { setStatus("Validação de CNPJ..."); new TelaCNPJ(primaryStage).exibir(); }
+            case "cliente"   -> { setStatus("Cadastro de Cliente..."); new TelaCliente(primaryStage).exibir(); }
+            case "csv"       -> { setStatus("Leitura de CSV..."); new TelaCSV(primaryStage).exibir(); }
+            case "relatorio" -> { setStatus("Relatório de Clientes..."); new TelaRelatorio(primaryStage).exibir(); }
         }
         setStatus("Pronto");
     }

@@ -1,4 +1,4 @@
-package src.main.java.view;
+package view;
 
 import service.LoginService;
 import service.ValidadorEmail;

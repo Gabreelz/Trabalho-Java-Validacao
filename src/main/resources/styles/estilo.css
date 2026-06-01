@@ -227,6 +227,19 @@
     -fx-effect: dropshadow(gaussian, rgba(243,156,18,0.3), 8, 0, 0, 0);
 }
 
+.texto-relatorio {
+    -fx-background-color: #13151e;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2d3d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #e8e8f0;
+    -fx-prompt-text-fill: #5a5a7a;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14 10 14;
+    -fx-pref-height: 420px;
+}
+
 /* ── Área de Resultado ─────────────────────────────────────────── */
 .area-resultado {
     -fx-background-radius: 10;
