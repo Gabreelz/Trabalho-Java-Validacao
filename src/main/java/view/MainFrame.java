@@ -147,7 +147,7 @@ public class MainFrame {
             case "cliente"   -> { setStatus("Cadastro de Cliente..."); new TelaCliente(primaryStage).exibir(); }
             case "csv"       -> { setStatus("Leitura de CSV..."); new TelaCSV(primaryStage).exibir(); }
             case "email"     -> { setStatus("Validação de E-mail..."); new TelaEmail(primaryStage).exibir(); }
-            case "login"     -> { setStatus("Tela Login..."); new TelaLogin().setVisible(true); }
+            case "login"     -> { setStatus("Tela Login..."); new TelaLogin(primaryStage).exibir(); }
             case "relatorio" -> { setStatus("Relatório de Clientes..."); new TelaRelatorio(primaryStage).exibir(); }
         }
         setStatus("Pronto");
